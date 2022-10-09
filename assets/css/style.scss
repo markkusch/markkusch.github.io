@@ -1,0 +1,19 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+.page-header {
+  background-image: url("{{ site.baseurl }}/assets/images/banner.jpg");
+  padding: 4rem 6rem;
+  mask-image: linear-gradient(to bottom, rgb(0, 0, 0) 70%, transparent 100%);
+}
+
+html {
+  background-color: #101010;
+}
+
+.main-content h1, .main-content h2, .main-content h3, .main-content h4, .main-content h5, .main-content h6 {
+  font-weight: bold;
+  color: #fff;
+}
