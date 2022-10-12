@@ -4,6 +4,17 @@
 @import "{{ site.theme }}";
 @import "bootstrap/bootstrap";
 
+@keyframes appearText {
+  0% {
+    opacity: 0;
+    transform: translateY(0rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0.5rem);
+  }
+}
+
 .navbar {
   overflow: hidden;
   font-size: 2rem;
@@ -31,8 +42,8 @@
 .page-header {
   background-image: url("{{ site.baseurl }}/assets/images/banner.jpg");
   background-color: #101010;
-  padding: 2rem 6rem;
-  mask-image: linear-gradient(to bottom, rgb(0, 0, 0) 70%, transparent 100%);
+  padding: 1rem 6rem;
+  mask-image: linear-gradient(to bottom, rgb(0, 0, 0) 60%, transparent 100%);
 }
 
 body {
@@ -42,9 +53,33 @@ body {
 .main-content h1, .main-content h2, .main-content h3, .main-content h4, .main-content h5, .main-content h6 {
   font-weight: bold;
   color: #fff;
+  font-family: 'Montserrat';
 }
 
 .site-footer {
   color: #fff;
-  border-top: solid 1px rgba(255, 255, 255, 0.5)
+  border-top: solid 1px rgba(255, 255, 255, 0.5);
+  font-size: 1.15rem;
+  background-color: #080808;
+  font-family: 'Montserrat';
+}
+
+#index h1 {
+  font-size: 4rem;
+  justify-content: center;
+  animation-name: appearText;
+  opacity: 0;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
+  animation-duration: 1s;
+}
+
+#index h2 {
+  font-size: 2rem;
+  font-weight: 400;
+  opacity: 0;
+  animation-name: appearText;
+  animation-duration: 1s;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
 }

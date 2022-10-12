@@ -17,14 +17,14 @@
 
     <header class="page-header" role="banner">
       <div class = "navbar row">
-        <div class = "col col-sm-2">
+        <div class = "col col-xxl-3">
           <a href="{{ '/' | relative_url }}">
             <img src="{{ '/assets/images/logo.png' | relative_url }}" alt="icon" style="height: 4rem;">
           </a>
         </div>
-        <div class = "col offset-lg-3"></div>
+        <div class = "col offset-md-2"></div>
         {% for item in site.data.navbar.nav %}
-        <div class = "col col-sm-2">
+        <div class = "col col-xxl-2">
           <h3><a href="{{ item.url }}">{{ item.title }}</a></h3>
         </div>
         {% endfor %}
@@ -34,11 +34,13 @@
     <main id="content" class="main-content" role="main">
       {{ content }}
 
-      <footer class="site-footer">
-        {% if site.github.is_project_page %}
-          <span class="site-footer-owner"><a href="{{ site.github.repository_url }}">{{ site.github.repository_name }}</a> is maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a>.</span>
-        {% endif %}
-      </footer>
+      <!-- Not using footer for now
+        <footer class="row site-footer navbar fixed-bottom text-center">
+          {% if site.github.is_project_page %}
+            <div class="col-md-8 mx-auto"><a href="{{ site.github.repository_url }}">{{ site.github.repository_name }}</a> is maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a>.</div>
+          {% endif %}
+        </footer>
+      -->
     </main>
   </body>
 </html>
