@@ -16,12 +16,19 @@
     <a id="skip-to-content" href="#content">Skip to the content.</a>
 
     <header class="page-header" role="banner">
-      <h1 class="project-name">{{ page.title | default: site.title | default: site.github.repository_name }}</h1>
-      <h2 class="project-tagline">{{ page.description | default: site.description | default: site.github.project_tagline }}</h2>
-      {% if site.show_downloads %}
-        <a href="{{ site.github.zip_url }}" class="btn">Download .zip</a>
-        <a href="{{ site.github.tar_url }}" class="btn">Download .tar.gz</a>
-      {% endif %}
+      <div class = "navbar row">
+        <div class = "col col-sm-2">
+          <a href="{{ '/' | relative_url }}">
+            <img src="{{ '/assets/images/logo.png' | relative_url }}" alt="icon" style="height: 4rem;">
+          </a>
+        </div>
+        <div class = "col offset-lg-3"></div>
+        {% for item in site.data.navbar.nav %}
+        <div class = "col col-sm-2">
+          <h3><a href="{{ item.url }}">{{ item.title }}</a></h3>
+        </div>
+        {% endfor %}
+      </div>
     </header>
 
     <main id="content" class="main-content" role="main">

@@ -1,12 +1,37 @@
 ---
 ---
 
-@import 'bootstrap/bootstrap';
 @import "{{ site.theme }}";
+@import "bootstrap/bootstrap";
+
+.navbar {
+  overflow: hidden;
+  font-size: 2rem;
+}
+
+.navbar a {
+  color: white;
+  font-family: 'Montserrat';
+  transition: 0.2s all ease-in-out;
+  font-style: italic;
+  text-shadow:
+       3px 3px 0 #000,
+     -1px -1px 0 #000,  
+      1px -1px 0 #000,
+      -1px 1px 0 #000,
+       1px 1px 0 #000;
+}
+
+.navbar a:hover {
+  transform: scale(1.5); 
+  color: #535353;
+  text-decoration: none;
+}
 
 .page-header {
   background-image: url("{{ site.baseurl }}/assets/images/banner.jpg");
-  padding: 4rem 6rem;
+  background-color: #101010;
+  padding: 2rem 6rem;
   mask-image: linear-gradient(to bottom, rgb(0, 0, 0) 70%, transparent 100%);
 }
 
