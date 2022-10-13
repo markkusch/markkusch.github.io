@@ -11,7 +11,7 @@
   }
   100% {
     opacity: 1;
-    transform: translateY(0.5rem);
+    transform: translateY(0.75rem);
   }
 }
 
@@ -45,7 +45,8 @@
 
 .page-header {
   background-image: url("{{ site.baseurl }}/assets/images/banner.jpg");
-  background-color: #101010;
+  //background-image: none;
+  background-color: #202020;
   mask-image: linear-gradient(to bottom, rgb(0, 0, 0) 60%, transparent 100%);
 }
 
@@ -100,4 +101,33 @@ html, body {
   animation-duration: 1s;
   animation-delay: 1s;
   animation-fill-mode: forwards;
+}
+
+.contact-left h1 {
+  font-size: 400%;
+}
+
+.contact-left h2 {
+  font-size: 200%;
+  font-weight: 500;
+}
+
+.contact-right h1, .contact-right h2 {
+  font-weight: 400;
+}
+
+.contact-left {
+  animation-name: appearText;
+  opacity: 0;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
+  animation-duration: 1s;
+}
+
+.contact-right {
+  animation-name: appearText;
+  opacity: 0;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+  animation-duration: 1s;
 }
