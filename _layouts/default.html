@@ -16,26 +16,27 @@
     <a id="skip-to-content" href="#content">Skip to the content.</a>
 
     <header class="page-header py-1" role="banner">
-      <div class = "navbar row justify-content-md-center px-0">
-        <div class = "col-md-auto mx-5">
+      <div class = "navbar row justify-content-md-center">
+        <div class = "col">
           <a href="{{ '/' | relative_url }}">
-            <img src="{{ '/assets/images/logo.png' | relative_url }}" alt="icon" style="height: 4rem;">
+            <img src="{{ '/assets/images/logo.png' | relative_url }}" alt="icon">
           </a>
         </div>
-        <div class = "col offset-md-2"></div>
-        {% for item in site.data.navbar.nav %}
-        <div class = "col-md-auto mx-5">
-          {% if page.url contains item.url %}
-            <h3><a id = "current" href="{{ item.url }}">{{ item.title }}</a></h3>
-          {% else %}
-            <h3><a href="{{ item.url }}">{{ item.title }}</a></h3>
-          {% endif %}
+        <div class = "row mt-2">
+          {% for item in site.data.navbar.nav %}
+          <div class = "col-md-auto mx-5">
+            {% if page.url contains item.url %}
+              <h3><a id = "current" href="{{ item.url }}">{{ item.title }}</a></h3>
+            {% else %}
+              <h3><a href="{{ item.url }}">{{ item.title }}</a></h3>
+            {% endif %}
+          </div>
+          {% endfor %}
         </div>
-        {% endfor %}
       </div>
     </header>
 
-    <main id="content" class="row main-content h-75 m-0" role="main">
+    <main id="content" class="row main-content h-75 justify-content-center m-0" role="main">
       {{ content }}
 
       <!-- Not using footer for now
