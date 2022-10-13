@@ -15,17 +15,21 @@
   <body>
     <a id="skip-to-content" href="#content">Skip to the content.</a>
 
-    <header class="page-header" role="banner">
-      <div class = "navbar row">
-        <div class = "col col-xxl-3">
+    <header class="page-header py-1" role="banner">
+      <div class = "navbar row justify-content-md-center px-0">
+        <div class = "col-md-auto mx-5">
           <a href="{{ '/' | relative_url }}">
             <img src="{{ '/assets/images/logo.png' | relative_url }}" alt="icon" style="height: 4rem;">
           </a>
         </div>
         <div class = "col offset-md-2"></div>
         {% for item in site.data.navbar.nav %}
-        <div class = "col col-xxl-2">
-          <h3><a href="{{ item.url }}">{{ item.title }}</a></h3>
+        <div class = "col-md-auto mx-5">
+          {% if page.url contains item.url %}
+            <h3><a id = "current" href="{{ item.url }}">{{ item.title }}</a></h3>
+          {% else %}
+            <h3><a href="{{ item.url }}">{{ item.title }}</a></h3>
+          {% endif %}
         </div>
         {% endfor %}
       </div>
