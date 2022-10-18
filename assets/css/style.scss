@@ -104,21 +104,11 @@ img {
 #index h1 {
   font-size: max(4vw, 3.5em);
   justify-content: center;
-  animation-name: appearText;
-  opacity: 0;
-  animation-delay: 0.5s;
-  animation-fill-mode: forwards;
-  animation-duration: 1s;
 }
 
 #index h2 {
   font-size: max(2vw, 1.5em);
   font-weight: 400;
-  opacity: 0;
-  animation-name: appearText;
-  animation-duration: 1s;
-  animation-delay: 1s;
-  animation-fill-mode: forwards;
 }
 
 .contact-left h1 {
@@ -141,23 +131,50 @@ img {
 }
 
 .contact-right img {
-  width: max(5vw, 5em);
+  width: max(3vw, 2em);
+  max-width: fit-content;
 }
 
 .contact-left {
+  padding-top: 5vh;
+}
+
+.contact-right {
+  padding-top: 10vh;
+}
+
+ul {
+  list-style-type: none;
+  color: white;
+}
+
+.heading-star {
+  width: max(1vw, 1em);
+  padding-bottom: 0.2em;
+  margin-right: 0.2em;
+  margin-left: 0.2em;
+}
+
+.anim-first {
   animation-name: appearText;
   opacity: 0;
   animation-delay: 0.5s;
   animation-fill-mode: forwards;
   animation-duration: 1s;
-  padding-top: 5vh;
 }
 
-.contact-right {
+.anim-second {
   animation-name: appearText;
   opacity: 0;
   animation-delay: 1s;
   animation-fill-mode: forwards;
   animation-duration: 1s;
-  padding-top: 10vh;
+}
+
+.anim-third {
+  animation-name: appearText;
+  opacity: 0;
+  animation-delay: 1.5s;
+  animation-fill-mode: forwards;
+  animation-duration: 1s;
 }
