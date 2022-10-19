@@ -21,6 +21,8 @@ class Star {
     this.z = this.z - 10;
     if (this.z < 1) {
       this.z = width;
+      this.x = random(-width, width);
+      this.y = random(-height, height);
     }
   }
 
@@ -36,7 +38,7 @@ class Star {
 
 function setup() {
   let cnv = createCanvas(width = document.body.clientWidth, height = document.body.clientHeight);
-  cnv.parent('content'); // Maybe change it to 'content' if you want to apply it to the whole website
+  cnv.parent('content'); // 'content' for whole website, 'index' for index page only
   for (let i = 0; i < 500; i++) {
     stars.push(new Star());
   }
