@@ -31,8 +31,10 @@ class Star {
     noStroke();
     let sx = map(this.x / this.z, 0, 1, 0, width);
     let sy = map(this.y / this.z, 0, 1, 0, height);
-    let r = map(this.z, 0, 1920, 16, 0);
-    ellipse(sx, sy, r, r);
+    let size = map(this.z, 0, 1920, 16, 0);
+    let sizeReductionFactor = width / 1920;
+    size = size * sizeReductionFactor;
+    ellipse(sx, sy, size, size);
   }
 }
 
