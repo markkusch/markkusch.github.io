@@ -58,10 +58,8 @@
 }
 
 .page-header {
-  background-image: url("{{ site.baseurl }}/assets/images/banner.jpg");
-  //background-image: none;
-  background-color: #202020;
-  mask-image: linear-gradient(to bottom, rgb(0, 0, 0) 60%, transparent 100%);
+  background-image: none;
+  background-color: transparent;
   position: relative;
   z-index: 1;
 }
