@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Container, Row } from 'react-bootstrap';
 
 function Home() {
   return (
@@ -16,7 +16,7 @@ function Home() {
         </h2>
       </Row>
       <Row className="justify-content-center mt-4 anim-third">
-        <img src="/images/single-star.png" />
+        <img src="/images/single-star.png" alt='star decoration' />
       </Row>
     </Container>
   )

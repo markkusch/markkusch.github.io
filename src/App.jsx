@@ -1,4 +1,4 @@
-import { HashRouter, Routes, Route, BrowserRouter } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import Layout from './pages/Layout.jsx';
 import Home from './pages/Home.jsx';
 import Work from './pages/Work.jsx';
@@ -8,7 +8,7 @@ import NoPage from './pages/NoPage.jsx';
 
 function App() {
   return (
-    <BrowserRouter className = 'App'>
+    <HashRouter className = 'App'>
       <Routes>
         <Route path='/' element={<Layout />}>
           <Route index element={<Home />} />
@@ -18,7 +18,7 @@ function App() {
           <Route path='*' element={<NoPage />} />
         </Route>
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 

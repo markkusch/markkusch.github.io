@@ -31,13 +31,13 @@ function Header() {
       <Navbar.Collapse >
         <Nav className="justify-content-end me-4" style={{ width: "100%" }}>
           <Nav.Item className="mx-3">
-            <Nav.Link href="/work" active={activeStatus.work}>Work</Nav.Link>
+            <Nav.Link href="/#/work" active={activeStatus.work}>Work</Nav.Link>
           </Nav.Item>
           <Nav.Item className="mx-3">
-            <Nav.Link href="/about" active={activeStatus.about}>About me</Nav.Link>
+            <Nav.Link href="/#/about" active={activeStatus.about}>About me</Nav.Link>
           </Nav.Item>
           <Nav.Item className="mx-3">
-            <Nav.Link href="/contact" active={activeStatus.contact}>Contact</Nav.Link>
+            <Nav.Link href="/#/contact" active={activeStatus.contact}>Contact</Nav.Link>
           </Nav.Item>
         </Nav>
       </Navbar.Collapse>
