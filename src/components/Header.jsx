@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
+import { useLocation } from 'react-router-dom';
 
 function Header() {
   const [activeStatus, setActiveStatus] = React.useState({
@@ -8,7 +9,7 @@ function Header() {
     contact: false,
   });
 
-  let location = window.location.pathname;
+  let location = useLocation().pathname;
 
   React.useEffect(() => {
     if (location === '/') {

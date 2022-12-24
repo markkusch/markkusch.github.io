@@ -1,37 +1,42 @@
 import * as React from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
+import ContentItem from '../components/ContentItem';
 
 function Contact() {
+  let contactRight = (
+    <Col xs={12} md={4} className='contact-right anim-second text-end'>
+      <Row>
+        <h1> markuschue@gmail.com </h1>
+      </Row>
+      <Row>
+        <h2> +34 648 40 21 74 </h2>
+      </Row>
+      <Row className="my-5" />
+      <Row className="mt-5 justify-content-end">
+        <Col xs={2}>
+          <h4>
+            <a href="https://www.linkedin.com/in/markuschu/">
+              <img className="cover" src="/images/linkedin-logo.png" alt="email" />
+            </a>
+          </h4>
+        </Col>
+        <Col xs={2}>
+          <h4>
+            <a href="https://www.github.com/markuschue">
+              <img className="cover" src="/images/github-logo.png" alt="email" />
+            </a>
+          </h4>
+        </Col>
+      </Row>
+    </Col>
+  )
+
   return (
-    <Row className="main-content vertical-center w-100 p-5">
-      <Col className="contact-left anim-first mb-5">
-        <h1>Let's get in touch!</h1>
-        <h2>
-          I'm always looking for new opportunities. <br />
-          Feel free to contact me.
-        </h2>
-      </Col>
-      <Col className='contact-right anim-second text-end'>
-          <h1> markuschue@gmail.com </h1>
-          <h2> +34 648 40 21 74 </h2>
-        <Row className="mt-5 justify-content-end">
-          <Col xs={2}>
-            <h4>
-              <a href="https://www.linkedin.com/in/markuschu/">
-                <img className="cover" src="/images/linkedin-logo.png" alt="email" />
-              </a>
-            </h4>
-          </Col>
-          <Col xs={2}>
-            <h4>
-              <a href="https://www.github.com/markuschue">
-                <img className="cover" src="/images/github-logo.png" alt="email" />
-              </a>
-            </h4>
-          </Col>
-        </Row>
-      </Col>
-    </Row>
+    <ContentItem 
+      title="Let's get in touch!"
+      subtitle="I'm always looking for new opportunities.
+                Feel free to contact me."
+      rightComponent={contactRight} />
   );
 }
 
