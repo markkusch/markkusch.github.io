@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom';
 
 function Header() {
   const [activeStatus, setActiveStatus] = React.useState({
-    work: false,
+    projects: false,
     about: false,
     contact: false,
   });
@@ -13,20 +13,20 @@ function Header() {
 
   React.useEffect(() => {
     if (location === '/') {
-      setActiveStatus({ work: false, about: false, contact: false });
-    } else if (location === '/work') {
-      setActiveStatus({ work: true, about: false, contact: false });
+      setActiveStatus({ projects: false, about: false, contact: false });
+    } else if (location === '/projects') {
+      setActiveStatus({ projects: true, about: false, contact: false });
     } else if (location === '/about') {
-      setActiveStatus({ work: false, about: true, contact: false });
+      setActiveStatus({ projects: false, about: true, contact: false });
     } else if (location === '/contact') {
-      setActiveStatus({ work: false, about: false, contact: true });
+      setActiveStatus({ projects: false, about: false, contact: true });
     }
   }, [location]);
 
   const navItems = (
     <>
       <Nav.Item className="mx-3 text-center">
-        <Nav.Link href="/#/work" active={activeStatus.work}>Work</Nav.Link>
+        <Nav.Link href="/#/projects" active={activeStatus.projects}>Projects</Nav.Link>
       </Nav.Item>
       <Nav.Item className="mx-3 text-center">
         <Nav.Link href="/#/about" active={activeStatus.about}>About me</Nav.Link>

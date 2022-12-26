@@ -3,7 +3,7 @@ import { Container, Row } from 'react-bootstrap';
 
 function Home() {
   return (
-    <Container id="index" className='main-content vertical-center text-center'>
+    <Container id="index" className='main-content my-auto text-center'>
       <Row className="anim-first">
         <h1>Hi, <br />
           I'm Markus

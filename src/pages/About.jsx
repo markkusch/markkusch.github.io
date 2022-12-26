@@ -1,72 +1,59 @@
 import * as React from 'react';
 import { Col } from 'react-bootstrap';
 import ContentItem from '../components/ContentItem';
+import Arrow from '../components/Arrow';
 
 function About() {
   const [currentItem, setCurrentItem] = React.useState(0);
   const [animClass, setAnimClass] = React.useState('anim-second');
-  const [animPlaying, setAnimPlaying] = React.useState(false);
+  const [isAnimating, setIsAnimating] = React.useState(false);
   
-  const aboutIntroduction = (animClass) => (
-    <Col xs={12} md={5} className={animClass + ' my-auto about-right'}>
+  const aboutIntroduction = (
+    <div className={'anim-first pt-5'}>
       <h1> Hi, I'm Markus Schüller. </h1>
       <h3> I'm a Computer Engineer graduated in Universidad de La Laguna (2022) and living in Tenerife, Spain. </h3>
       <h3> I'm passionate about building great software, and I love to learn new things. </h3>
-      <p className='text-center mt-5'>
-        <img src="/images/arrow-down.png" alt="scroll down" className="arrow-img" onClick={() => handleItemsChange('down')} />
-      </p>
-    </Col>
+      <Arrow direction="down" mt={5} onClick={() => handleItemsChange('down')} />
+    </div>
   );
 
-  const aboutSkills = (animClass) => (
-    <Col xs={12} md={5} className={animClass + ' my-auto about-right'}>
-      <p className='text-center'>
-        <img src="/images/arrow-up.png" alt="scroll down" className="arrow-img" onClick={() => handleItemsChange('up')} />
-      </p>
+  const aboutSkills = (
+    <div className={'anim-first'}>
+      <Arrow direction="up" mt={0} onClick={() => handleItemsChange('up')} />
       <h1> My skills </h1>
       <h3> I have knowledge in Full-Stack technologies such as React, Node.js, Express, MongoDB, and more. </h3>
       <h3> I also have experience with C++, Python, SQL and other technologies like Deep Learning and Git. </h3>
-      <p className='text-center mt-5'>
-        <img src="/images/arrow-down.png" alt="scroll down" className="arrow-img" onClick={() => handleItemsChange('down')} />
-      </p>
-    </Col>
+      <Arrow direction="down" mt={5} onClick={() => handleItemsChange('down')} />
+    </div>
   );
 
-  const aboutLife = (animClass) => (
-    <Col xs={12} md={5} className={animClass + ' my-auto about-right'}>
-      <p className='text-center'>
-        <img src="/images/arrow-up.png" alt="scroll down" className="arrow-img" onClick={() => handleItemsChange('up')} />
-      </p>
+  const aboutLife = (
+    <div className={'anim-first'}>
+      <Arrow direction="up" mt={0} onClick={() => handleItemsChange('up')} />
       <h1> My life </h1>
       <h3> Besides programming, I am very passionate about everything related to space! (Hence the style of this website). </h3>
       <h3> I also love travelling, photography, reading, and playing video games. </h3>
-    </Col>
+    </div>
   );
 
   const aboutRightComponents = [aboutIntroduction, aboutSkills, aboutLife];
 
   const handleItemsChange = React.useCallback((direction) => {
-    if (animPlaying) return;
+    if (isAnimating) return;
+    setIsAnimating(true);
     setAnimClass('anim-out');
-    setAnimPlaying(true);
     setTimeout(() => {
-      if (direction === 'down') {
-        if (currentItem < aboutRightComponents.length - 1) {
-          setCurrentItem(currentItem + 1);
-        }
-      } else {
-        if (currentItem > 0) {
-          setCurrentItem(currentItem - 1);
-        }
+      if (direction === 'down' && currentItem < aboutRightComponents.length - 1) {
+        setCurrentItem(currentItem + 1);
+      } else if (direction === 'up' && currentItem > 0) {
+        setCurrentItem(currentItem - 1);
       }
-    }, 1000);
-    setTimeout(() => {
       setAnimClass('anim-fast');
-    }, 1000);
+    }, 500);
     setTimeout(() => {
-      setAnimPlaying(false);
-    }, 1500);
-  }, [currentItem, aboutRightComponents.length, animPlaying]);
+      setIsAnimating(false);
+    }, 1000);
+  }, [currentItem, isAnimating, aboutRightComponents.length]);
 
   React.useEffect(() => {
     const handleScroll = event => {
@@ -83,14 +70,26 @@ function About() {
   }, [handleItemsChange]);
 
   return (
-    <>
+    <div className='main-content my-auto'>
       <ContentItem
         title="Who am I?"
         subtitle="About me, my skills and my life."
-        rightComponent={aboutRightComponents[currentItem](animClass)}
-        />
-        
-    </>
+        rightComponent=
+          <Col xs={12} md={5} className={animClass + ' my-auto about-right'}>
+            {aboutRightComponents.map((item, index) => {
+              let displayClass = 'd-none';
+              if (index === currentItem) {
+                displayClass = '';
+              }
+              return (
+                <div key={index} className={displayClass}>
+                  {item}
+                </div>
+              );
+            })}
+          </Col>
+      />
+    </div>
   );
 }
 

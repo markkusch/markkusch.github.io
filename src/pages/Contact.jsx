@@ -32,11 +32,14 @@ function Contact() {
   )
 
   return (
-    <ContentItem 
-      title="Let's get in touch!"
-      subtitle="I'm always looking for new opportunities.
-                Feel free to contact me."
-      rightComponent={contactRight} />
+    <div className='main-content my-auto'>
+      <ContentItem 
+        title="Let's get in touch!"
+        subtitle="I'm always looking for new opportunities.
+                  Feel free to contact me."
+        rightComponent={contactRight} 
+      />
+    </div>
   );
 }
 

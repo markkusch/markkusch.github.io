@@ -28,8 +28,8 @@ function ContentItem({ title, subtitle, rightComponent }) {
 
   return (
     <>
-      <Row className="main-content p-5 justify-content-center my-auto">
-        <Col className="content-left anim-first mt-5 my-auto">
+      <Row className="p-5 justify-content-center">
+        <Col className="content-left anim-first mt-5">
           <h1>{title}</h1>
           <h2>{subtitle}</h2>
         </Col>
