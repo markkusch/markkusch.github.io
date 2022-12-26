@@ -62,13 +62,18 @@
   background-image: none;
   background-color: transparent;
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 html, body {
   background-color: #101010;
   margin: 0;
   height: 100%;
+}
+
+body, body * {
+  font-family: 'Montserrat', sans-serif;
+  color: #fff;
 }
 
 img {
@@ -87,13 +92,11 @@ img {
   z-index: 1;
 }
 
-.main-content h1, .main-content h2, .main-content h3, .main-content h4, .main-content h5, .main-content h6 {
-  font-weight: bold;
-  color: #fff;
+.main-content h1 {
+  font-weight: bolder;
 }
 
 .main-content p {
-  color: #fff;
   font-size: 1.4em;
 }
 

@@ -5,6 +5,7 @@ import ContentItem from '../components/ContentItem';
 function About() {
   const [currentItem, setCurrentItem] = React.useState(0);
   const [animClass, setAnimClass] = React.useState('anim-second');
+  const [animPlaying, setAnimPlaying] = React.useState(false);
   
   const aboutIntroduction = (animClass) => (
     <Col xs={12} md={5} className={animClass + ' my-auto about-right'}>
@@ -45,7 +46,9 @@ function About() {
   const aboutRightComponents = [aboutIntroduction, aboutSkills, aboutLife];
 
   const handleItemsChange = React.useCallback((direction) => {
+    if (animPlaying) return;
     setAnimClass('anim-out');
+    setAnimPlaying(true);
     setTimeout(() => {
       if (direction === 'down') {
         if (currentItem < aboutRightComponents.length - 1) {
@@ -60,7 +63,10 @@ function About() {
     setTimeout(() => {
       setAnimClass('anim-fast');
     }, 1000);
-  }, [currentItem, aboutRightComponents.length]);
+    setTimeout(() => {
+      setAnimPlaying(false);
+    }, 1500);
+  }, [currentItem, aboutRightComponents.length, animPlaying]);
 
   React.useEffect(() => {
     const handleScroll = event => {
