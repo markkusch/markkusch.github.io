@@ -27,15 +27,17 @@ function ContentItem({ title, subtitle, rightComponent }) {
   );
 
   return (
-    <Row className="main-content vertical-center p-5 justify-content-center content-item w-100">
-      <Col className="content-left anim-first mt-5 my-auto">
-        <h1>{title}</h1>
-        <h2>{subtitle}</h2>
-      </Col>
-      {verticalDivider}
-      {horizontalDivider}
-      {rightComponent}
-    </Row>
+    <>
+      <Row className="main-content p-5 justify-content-center my-auto">
+        <Col className="content-left anim-first mt-5 my-auto">
+          <h1>{title}</h1>
+          <h2>{subtitle}</h2>
+        </Col>
+        {verticalDivider}
+        {horizontalDivider}
+        {rightComponent}
+      </Row>
+    </>
   )
 }
 

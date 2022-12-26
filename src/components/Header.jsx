@@ -25,13 +25,13 @@ function Header() {
 
   const navItems = (
     <>
-      <Nav.Item className="mx-3">
+      <Nav.Item className="mx-3 text-center">
         <Nav.Link href="/#/work" active={activeStatus.work}>Work</Nav.Link>
       </Nav.Item>
-      <Nav.Item className="mx-3">
+      <Nav.Item className="mx-3 text-center">
         <Nav.Link href="/#/about" active={activeStatus.about}>About me</Nav.Link>
       </Nav.Item>
-      <Nav.Item className="mx-3">
+      <Nav.Item className="mx-3 text-center">
         <Nav.Link href="/#/contact" active={activeStatus.contact}>Contact</Nav.Link>
       </Nav.Item>
     </>
