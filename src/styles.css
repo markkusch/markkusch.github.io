@@ -154,6 +154,10 @@ img {
   width: max(3vw, 2.5em);
 }
 
+.content-left {
+  margin-top: 3rem;
+}
+
 .content-left h1 {
   font-size: max(4vw, 3.5em);
 }
@@ -318,5 +322,13 @@ a {
     animation-fill-mode: forwards;
     display: block;
     margin-top: 2em;
+  }
+
+  .content-left {
+    margin-top: 0;
+  }
+
+  .arrow-padding {
+    display: none;
   }
 }

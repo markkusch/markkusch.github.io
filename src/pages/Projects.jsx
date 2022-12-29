@@ -118,7 +118,7 @@ function Projects() {
     <div className={'main-content my-auto ' + animClass}>
       {currentItem > 0 ?
         <Arrow className="anim-second" direction="up" mt={0} onClick={() => handleItemsChange('up')} /> :
-        <div className="p-5" />
+        <div className="p-5 arrow-padding" />
       }
       {projects.map((item, index) => {
         let displayClass = 'd-none';
@@ -133,7 +133,7 @@ function Projects() {
       })}
       {(currentItem < projects.length - 1) ? 
         <Arrow className="anim-second" direction="down" mt={5} onClick={() => handleItemsChange('down')} /> :
-        <div className="p-5" />
+        <div className="p-5 arrow-padding" />
       }
     </div>
   );
