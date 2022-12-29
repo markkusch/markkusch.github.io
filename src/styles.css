@@ -20,6 +20,37 @@
   }
 }
 
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleAndBlur {
+  0% {
+    transform: scale(1);
+    filter: blur(5px);
+  }
+  100% {
+    transform: scale(1.1);
+    filter: blur(0px);
+  }
+}
+
+@keyframes scaleAndBlurReverse {
+  0% {
+    transform: scale(1.1);
+    filter: blur(0px);
+  }
+  100% {
+    transform: scale(1);
+    filter: blur(5px);
+  }
+}
+
 .nav-link {
   color: white;
   font-size: max(1.25vw, 1.25em);
@@ -239,4 +270,53 @@ canvas {
 
 .arrow-img:hover {
   cursor: pointer;
+}
+
+.project-img {
+  animation-name: scaleAndBlurReverse;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+.projects-right:hover .project-img {
+  cursor: pointer;
+  animation-name: scaleAndBlur;
+  animation-duration: 1s;
+}
+
+.project-img-foreground {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 0.65vw;
+  animation-name: fadeIn;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  text-align: center;
+  text-decoration: none;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .project-img-foreground {
+    font-size: 2.5vw;
+    position: relative;
+    transform: translate(0, 0);
+    top: 0;
+    left: 0;
+    margin-top: 5em;
+  }
+
+  .project-img {
+    animation-name: scaleAndBlur;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    display: block;
+    margin-top: 2em;
+  }
 }

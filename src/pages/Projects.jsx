@@ -1,47 +1,87 @@
 import React from 'react';
-import { Col, Row } from 'react-bootstrap';
+import { Col, Image } from 'react-bootstrap';
 import ContentItem from '../components/ContentItem.jsx';
 import Arrow from '../components/Arrow.jsx';
+import ProjectImage from '../components/ProjectImage.jsx';
 
 function Projects() {
   const [currentItem, setCurrentItem] = React.useState(0);
   const [animClass, setAnimClass] = React.useState('');
   const [isAnimating, setIsAnimating] = React.useState(false);
 
-  const MERNBlog = (
+  const MERNBlog = (display) => (
     <ContentItem
       title="MERN Blog"
       subtitle="A custom blog made with the MERN stack."
       rightComponent={
-        <Col xs={12} md={4} className='projects-right anim-second text-end my-auto'>
-          <Row>
-            <h1> Coming soon! </h1>
-          </Row>
-          <Row>
-            <h2> Stay tuned! </h2>
-          </Row>
-        </Col>
-      } />
-  );
-
-  const hydrae = (
-    <ContentItem
-      title="Hydrae"
-      subtitle="A 2D graphics engine based around gravity and collisions."
-      rightComponent={
-        <Col xs={12} md={4} className='projects-right anim-second text-end my-auto'>
-          <Row>
-            <h1> Coming soon! </h1>
-          </Row>
-          <Row>
-            <h2> Stay tuned! </h2>
-          </Row>
+        <Col xs={12} md={4} className='projects-right anim-second my-auto'>
+          <ProjectImage
+            src="/images/mern-blog.png"
+            alt="MERN Blog"
+            link="https://github.com/markuschue/react-blog"
+            display={display}
+            foreground= {(
+              <div>
+                <p>A mockup blog capable of composing, editing, deleting posts... And more!</p>
+                <p>Made with MongoDB, Express.js, React.js and Node.js</p>
+                <Image src="/images/github-logo.png" alt="Github Logo" className='my-auto h-25 w-25' />
+              </div>
+            )}
+          />
         </Col>
       } 
     />
   );
+
+  const hydrae = (display) => (
+    <ContentItem
+      title="Hydrae"
+      subtitle="A 2D graphics engine based around gravity and collisions."
+      rightComponent={
+        <Col xs={12} md={4} className='projects-right anim-second my-auto'>
+          <ProjectImage
+            src="/images/hydrae.gif"
+            alt="Hydrae"
+            link="https://github.com/markuschue/hydrae"
+            display={display}
+            foreground={(
+              <div>
+                <p>A sandbox application for learning low level coding and playing around with physics.</p>
+                <p>Written in C++ and SFML.</p>
+                <Image src="/images/github-logo.png" alt="Github Logo" className='my-auto h-25 w-25' />
+              </div>
+            )}
+          />
+        </Col>
+      } 
+    />
+  );
+
+  const skettySender = (display) => (
+    <ContentItem
+      title="Sketty Sender"
+      subtitle="A daily spaghetti newsletter."
+      rightComponent={
+        <Col xs={12} md={4} className='projects-right anim-second my-auto'>
+          <ProjectImage
+            src="/images/sketty-sender.png"
+            alt="Sketty Sender"
+            link="https://github.com/markuschue/sketty-sender"
+            display={display}
+            foreground={(
+              <div>
+                <p>A daily newsletter of random spaghetti images.</p>
+                <p>Made with Node.js, Express.js and MongoDB.</p>
+                <Image src="/images/github-logo.png" alt="Github Logo" className='my-auto h-25 w-25' />
+              </div>
+            )}
+          />
+        </Col>
+      }
+    />
+  );
   
-  const projects = [MERNBlog, hydrae];
+  const projects = [MERNBlog, hydrae, skettySender];
 
   const handleItemsChange = React.useCallback((direction) => {
     if (isAnimating) return;
@@ -87,7 +127,7 @@ function Projects() {
         }
         return (
           <div key={index} className={displayClass}>
-            {item}
+            {item(displayClass)}
           </div>
         );
       })}
